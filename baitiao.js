@@ -1,6 +1,6 @@
-var delay = 0.01;//提交时间（到点前或到点后多少秒领取，提前为负值，单位秒，默认0.01秒后）
+var delay = 0.40;//提交时间（到点前或到点后多少秒领取，提前为负值，单位秒，默认0.01秒后）
 var count = 0,
-interval = 100;
+interval = 500;
 var intvl = setInterval(tijiao, interval);
 var consolecss = 'color:red;font-weight:bold;font-size:12px';
 var a = null;
@@ -24,7 +24,7 @@ var ts = getServerTime(urlInfo);
 var t2 = new Date().getTime();
 var deviation = ts - (t1 + t2) / 2,
 dev = parseInt(deviation / 1000);
-var kaishi = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + now.getDate() + ' ' + hms;
+var kaishi = now.getFullYear() + '/' + (now.getMonth() + 1) + '/' + (now.getDate()+1) + ' ' + hms;
 console.log('%c优惠券领取开始时间' + kaishi, consolecss);
 console.log('%c服务器比本机时间' + ((dev >= 0) ? '快': '慢') + timer_format(Math.abs(dev)), consolecss);
 d();
